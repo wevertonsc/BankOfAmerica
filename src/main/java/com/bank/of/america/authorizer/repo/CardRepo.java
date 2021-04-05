@@ -13,8 +13,6 @@ package com.bank.of.america.authorizer.repo;
 import com.bank.of.america.authorizer.model.Card;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.Optional;
-
 public interface CardRepo extends JpaRepository<Card, Long>{
-    Optional<Card> findCardByNumber(String number);
+    Card findCardByNumber(String number);
 }

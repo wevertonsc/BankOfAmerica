@@ -31,13 +31,7 @@ public class CardService {
     }
 
     public Card getCard(String number) throws NotFoundException {
-        return cardRepo
-                .findCardByNumber(number)
-                .orElseThrow(
-                        () -> {
-                            NotFoundException notFoundException = new NotFoundException("card with number " + number + " was not founded!");
-                            log.error("error in getting card number {}", number);
-                            return notFoundException;
-                        });
+        return cardRepo.findCardByNumber(number);
+
     }
 }

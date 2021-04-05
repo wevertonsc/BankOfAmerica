@@ -28,8 +28,7 @@ public class CardTest {
     public void verifyCardSaveData() throws NotFoundException {
         Card card = Fixtures.buildCard();
         cardRepo.save(card);
-        Card updateCard = cardRepo.findCardByNumber(Fixtures.buildCard().getNumber()).orElseThrow(
-                () -> {return new NotFoundException("number was not founded!");});
+        Card updateCard = cardRepo.findCardByNumber(Fixtures.buildCard().getNumber());
 
         assertEquals(card.getId(), updateCard.getId());
         assertEquals(card.getNumber(), updateCard.getNumber());

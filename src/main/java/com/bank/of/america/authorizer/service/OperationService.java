@@ -42,12 +42,7 @@ public class OperationService {
         }
 
         // - - Verify if card exists - -
-        Card card = cardRepo.findCardByNumber(operation.getNumber())
-                .orElseThrow(
-                        () -> {
-                            log.error("card number not founded!");
-                            return null;
-                        });
+        Card card = cardRepo.findCardByNumber(operation.getNumber());
 
         // - - Return message - -
         if(card == null){
